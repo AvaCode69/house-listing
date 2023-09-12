@@ -48,9 +48,10 @@ const HomePage = () => {
             </button>
           </div>
         </div>
+        <div className="section-center"> {filterLists.length > 0 ? <h4>{filterLists.length} Results</h4> : null}</div>
       </section>
-      <section></section>
-      {filterLists.length > 0 ? <h4>{filterLists.length}found</h4> : null}
+     
+    
       <ItemList />
     </main>
   );

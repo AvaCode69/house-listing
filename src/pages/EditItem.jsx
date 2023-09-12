@@ -210,10 +210,10 @@ const EditItem = () => {
             Upload Images:
             <div className={`upload-container ${getFieldClassName("image")}`}>
               <div className="upload-preview">
-                {imageURL && (
+                {image && (
                   <div className="image-preview">
                     <div className="image-item">
-                      <img src={imageURL} alt="Image Preview" />
+                      <img src={image} alt="Image Preview" />
                       <button
                         type="button"
                         className="remove-image-btn"
@@ -244,7 +244,7 @@ const EditItem = () => {
 
                 <div
                   className={`upload-icon-container ${
-                    imageURL.length > 0 ? "hidden" : ""
+                    image ? "hidden" : ""
                   }`}
                 >
                   <FiPlus className="upload-icon" />
@@ -279,6 +279,7 @@ const EditItem = () => {
               className={getFieldClassName("description")}
             ></textarea>
           </label>
+      
           <button type="submit">update Post</button>
           {addItemMessage && <p className="message">{addItemMessage}</p>}
         </form>
