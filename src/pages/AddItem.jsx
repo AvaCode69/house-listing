@@ -244,11 +244,11 @@ const AddItem = () => {
           </label>
           <label>
             Description:
-            <textarea
+            <textarea 
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className={getFieldClassName("description")}
+              className={getFieldClassName("description")}   rows={20}  cols="40" 
             ></textarea>
           </label>
           <button type="submit">Send Post</button>
