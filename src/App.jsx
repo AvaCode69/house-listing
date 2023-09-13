@@ -6,6 +6,8 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Sidebar />
+   
       <Routes>
         <Route path="/" element={<Home />} />
 
