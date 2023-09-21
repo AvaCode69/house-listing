@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  FaArrowLeft
+} from "react-icons/fa";
 const PageHero = ({ title, item }) => {
   return (
     <div>
-      <div className="section-center">
-        <h3>
+      <div className="section-hero">
+        <h4>
           <Link to="/">Home</Link>
-          {item && <Link to="/">/item</Link>}/{title}
-        </h3>
+        /{title}
+        </h4>
+        <Link to="/" className="btn-back">
+      <FaArrowLeft/>  back to Home
+      </Link>
       </div>
     </div>
   );

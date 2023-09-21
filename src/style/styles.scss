@@ -273,9 +273,58 @@ p {
   }
  
 }
+.section-hero{
+  display: flex;
+  @include widthStyles;
+    flex-direction: column;
+    text-align: left;
+    .btn-back{
+      color: #333;
+      font-weight: 700;
+     svg {
+      margin:-0.18rem 0.3rem;
+    }
+    }
+}
+.single-product{
+  @include gridStyle;
+  @include widthStyles;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  .left-column {
+    text-align: left;
+    background: var( --clr-white);
+    .in-left-part {
+      padding: 1rem 1rem;
+      svg {
+        margin:-0.18rem 0.3rem;
+        color:#b3b3b3
+    }
+    p{
+      color: #5a5a5a;
+    text-align: justify;
+    }
+   
+      .title-line {
+        @include gridStyle;
+        grid-template-columns: 1fr auto;
+     
+    }
+  }
+  img{
+    width: 100%
+  }
+}
 
+}
 
-
+.some-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  column-gap: 2rem;
+}
 
 
 @media (min-width: 992px) {
@@ -402,13 +451,19 @@ article {
       svg {
         margin-left: 0.4rem;
       }
-      .remove-btn {
-        cursor: pointer;
-        border: medium none transparent;
-        background: transparent;
-      }
+    
     }
   }
+}
+.remove-btn {
+  cursor: pointer;
+  background: transparent;
+  border: none !important;
+  color: #767676;
+}
+.edit-btn {
+  color: #e68d5d;
+  padding: 0 0.5rem;
 }
 .house-form {
   display: grid;
@@ -576,6 +631,10 @@ article {
     @include gridStyle;
     @include widthStyles;
     grid-template-columns: 1fr auto;
- 
   }
+  .single-product {
+   
+    grid-template-columns: 1fr 1fr;
+}
+  
 }

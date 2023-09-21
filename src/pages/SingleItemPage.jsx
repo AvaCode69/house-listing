@@ -4,7 +4,14 @@ import { useListsContext } from "../context/lists_context";
 import { post_url as url } from "../utils/constants";
 import { Loading, Error, PageHero, Modal } from "../components";
 import { Link } from "react-router-dom";
-import { FaShower, FaBed, FaRuler, FaTrash, FaEdit } from "react-icons/fa";
+import {
+  FaShower,
+  FaBed,
+  FaParking ,FaMapMarked,
+  FaRuler,FaMoneyBill,FaCube,
+  FaTrash,
+  FaEdit 
+} from "react-icons/fa";
 
 const SingleItemPage = () => {
   const { id } = useParams();
@@ -50,7 +57,7 @@ const SingleItemPage = () => {
     city,
     bedrooms,
     bathrooms,
-    constructionYear,
+    constructionYear,hasGarage
   } = single_item;
 
   console.log(single_item);
@@ -58,41 +65,68 @@ const SingleItemPage = () => {
     <section className="main">
       {isOpen && <Modal />}
       <PageHero title={city} item />
-      <div className="section section-center page">
-        <Link to="/" className="btn">
-          back to Home
-        </Link>
-        <img src={image} />
-        <div className="single-list-modify">
-          <button
-            type="button"
-            className="remove-btn"
-            onClick={() => {
-              console.log("Button clicked");
-              console.log(id);
-              openModal(id);
-            }}
-          >
-            {" "}
-            <FaTrash />{" "}
-          </button>
-          <Link to={`/edit/${id}`} className="edit-btn">
-            <FaEdit />
-          </Link>
-        </div>
-        <div className="product-center">
-          <h2>{street}</h2>
-          <p>
-            {zip}
-            {city}
-          </p>
-          <p>{price}</p>
-          <p>{size}</p>
-          <p>{constructionYear ? `built in ${constructionYear}` : null}</p>
+    
+      <div className="single-product">
+        <div className="left-column">
+          <img src={image} />
+          <div className="in-left-part">
+            <div className="title-line">
+              <h2>{street}</h2>
+              <div className="single-list-modify">
+              <Link to={`/edit/${id}`} className="edit-btn">
+                  <FaEdit />
+                </Link>
+                <button
+                  type="button"
+                  className="remove-btn"
+                  onClick={() => {
+                    console.log("Button clicked");
+                    console.log(id);
+                    openModal(id);
+                  }}
+                >
+                  {" "}
+                  <FaTrash />{" "}
+                </button>
+              
+              </div>
+            </div>
 
-          <p>{description}</p>
+            <p>
+              <FaMapMarked/>{zip}{"   "}{city}
+              
+            </p>
+            <div className="some-info">
+            <p><FaMoneyBill/>{price}</p>
+            <p><FaRuler/>{size}</p>
+            <p><FaCube/>{constructionYear ? `built in ${constructionYear}` : null}</p>
+          
+            <p>
+              {" "}
+              <FaBed />
+              {bedrooms}
+            </p>
+            <p>
+              <FaShower />
+              {bathrooms}
+            </p>
+            <p>
+              <FaParking />
+              {hasGarage}
+            </p>
+            </div>
+         
+
+            <p>{description}</p>
+          </div>
+        </div>
+
+        <div className="rigth-column">
+          <h1>similar product</h1>
         </div>
       </div>
+
+      <div className="product-center"></div>
     </section>
   );
 };

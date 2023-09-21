@@ -2,8 +2,8 @@ import React from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
- import { useListsContext } from "../context/lists_context";
- import { FaTimes } from "react-icons/fa";
+import { useListsContext } from "../context/lists_context";
+import { FaTimes } from "react-icons/fa";
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useListsContext();
 
@@ -29,7 +29,7 @@ const Sidebar = () => {
             );
           })}
         </ul>
-       </aside>
+      </aside>
     </div>
   );
 };
