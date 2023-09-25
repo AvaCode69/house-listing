@@ -23,15 +23,14 @@ const SingleItemPage = () => {
     lists_error: error,
     single_item: item,
     fetchSingleItem,
-    formData,
-    single_item,
+     single_item,
     openModal,
     isOpen,
   } = useListsContext();
 
   useEffect(() => {
     fetchSingleItem(`${url}/${id}`);
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (error) {

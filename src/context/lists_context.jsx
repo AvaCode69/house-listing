@@ -27,7 +27,7 @@ import {
   UPDATE_ITEM,
   PRICE_LOWEST,
   SIZE_SMALLEST,
-  FILTER_ITEM,
+  FILTER_ITEM,RECOMMEND_LIST
 } from "../actions";
 
 const initialState = {
@@ -44,6 +44,7 @@ const initialState = {
   modalItemId: null,
   edit_item: {},
   filterLists: [],
+  recommendNewList:[]
 };
 
 const ListsContext = createContext();
@@ -127,7 +128,9 @@ export const ListsProvider = ({ children }) => {
     let text = e.target.value;
     dispatch({ type: FILTER_ITEM, payload: text });
   };
-
+const recommendList=(idItem,location)=>{
+  dispatch({ type: RECOMMEND_LIST, payload: {idItem,location} });
+}
   const removeItem = async () => {
     const id = state.modalItemId;
     try {
@@ -278,7 +281,7 @@ export const ListsProvider = ({ children }) => {
         validateFormFields,
         sortPrice,
         sortSize,
-        filter,
+        filter,recommendList
       }}
     >
       {children}

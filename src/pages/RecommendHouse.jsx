@@ -11,26 +11,32 @@ import {
 } from "react-icons/fa";
 
 const RecommendHouse = ({ location ,idItem}) => {
-  const { id } = useParams();
-  const [newList, setNewList] = useState([]); // Define newList using useState
+  const [newList, setNewList] = useState([]);  
 
   const {
-    filterLists, fetchSingleItem,
+   lists_loading: loading,
+    lists_error: error,recommendList,recommendNewList
   } = useListsContext();
-  useEffect(() => {
-    fetchSingleItem(`${url}/${id}`);
-  }, [id]);
+
  
+
+ 
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
+
   useEffect(() => {
-    const updateLists = filterLists.filter((item) => {
-      return item.id !== idItem && item.city.toLowerCase().startsWith(location.toLowerCase());
-    });
-    setNewList(updateLists);
-  }, [id,location]);
+    recommendList(idItem,location)
+  }, [recommendNewList, location]);
 
   return (
     <section className="similar-product-list">
-      {newList.map((item) => {
+      {recommendNewList.map((item) => {
         const {
           id,
           image,

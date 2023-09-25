@@ -16,7 +16,7 @@ import {
   UPDATE_ITEM,
   PRICE_LOWEST,
   SIZE_SMALLEST,
-  FILTER_ITEM,
+  FILTER_ITEM,RECOMMEND_LIST
 } from "../actions";
 
 const lists_reducer = (state, action) => {
@@ -110,7 +110,6 @@ const lists_reducer = (state, action) => {
       const updateLists = state.filterLists.filter((item) =>
         item.city.toLowerCase().startsWith(action.payload.toLowerCase())
       );
-      console.log("updateLists", updateLists);
 
       return {
         ...state,
@@ -124,6 +123,19 @@ const lists_reducer = (state, action) => {
         filterLists: [...state.filterLists],
       };
     }
+  }
+  if (action.type === RECOMMEND_LIST) {
+    if (action.payload) {
+      const updateLists = state.filterLists.filter((item) =>
+      item.id !== action.payload.idItem && item.city.toLowerCase().startsWith(action.payload.location.toLowerCase()) 
+      );
+
+      return {
+        ...state,
+        lists_loading: false,
+        recommendNewList: updateLists,
+      };
+    }  
   }
 
   if (action.type === UPDATE_ITEM) {
