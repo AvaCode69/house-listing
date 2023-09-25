@@ -87,8 +87,9 @@ const AddItem = () => {
   return (
     <section className="container">
       <div className="wrap">
-        <form className="house-form" onSubmit={handleSubmit}>
-          <label>
+        <form className="" onSubmit={handleSubmit}>
+       <div className="item-form">
+       <label>
             Price:
             <input
               type="text"
@@ -242,15 +243,18 @@ const AddItem = () => {
               <option value="yes">Yes</option>
             </select>
           </label>
-          <label>
-            Description:
+       </div>
+       <div  className="textarea-form">
+       <label >
+            Description:  </label>
             <textarea 
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className={getFieldClassName("description")}   rows={20}  cols="40" 
+              className={getFieldClassName("description")}   rows={10}  cols={15}
             ></textarea>
-          </label>
+       </div>
+        
           <button type="submit">Send Post</button>
           {addItemMessage && <p className="message">{addItemMessage}</p>}
         </form>

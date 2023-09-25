@@ -114,8 +114,9 @@ const EditItem = () => {
   return (
     <section className="container">
       <div className="wrap">
-        <form className="house-form" onSubmit={handleSubmit}>
-          <label>
+        <form className="" onSubmit={handleSubmit}>
+       <div className="item-form">
+         <label>
             Price:
             <input
               type="text"
@@ -270,20 +271,23 @@ const EditItem = () => {
               <option value="yes">Yes</option>
             </select>
           </label>
+          </div>
+       <div  className="textarea-form">
           <label>
             Description:
             <textarea
               name="description"
               value={description}
               onChange={handleChange}
-              className={getFieldClassName("description")}
+              className={getFieldClassName("description")}   rows={10}  cols={15} 
             ></textarea>
           </label>
+         </div>
       
-          <button type="submit">update Post</button>
+          <button type="submit">Save</button>
           {addItemMessage && <p className="message">{addItemMessage}</p>}
         </form>
-      </div>
+        </div>
     </section>
   );
 };

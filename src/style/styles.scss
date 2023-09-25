@@ -148,6 +148,12 @@ p {
   border-radius: var(--radius);
   margin-bottom: 1rem;
 }
+@mixin inputStyle{
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc !important;
+  border-radius: 0.3rem !important;
+}
 .loading {
   width: 6rem;
   height: 6rem;
@@ -493,42 +499,61 @@ h5 {
   color: #e68d5d;
   padding: 0 0.5rem;
 }
-.house-form {
+.wrap{
+  .item-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto auto 0;
+    margin-top: 1.4rem;
+  }
+    label {
+      display: flex;
+      flex-direction: column;
+    }
+    input,
+    select{
+     @include inputStyle
+    }
+    textarea{
+      @include inputStyle;
+      padding: 0.8rem !important;
+      width: 94%;
+     
+    }
+
+    button {
+      background: #eb5440;
+      width: 140px;
+      border-color: transparent;
+      border-radius: 0.25rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.888rem;
+      font-weight: 400;
+      letter-spacing: 0.1rem;
+      padding: 0.37rem 0.4rem;
+      text-transform: uppercase;
+      transition: all 0.3s linear;
+      height: 3rem;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #f16351;
+    }
+   
+      text-align: left;
+  
+}
+.textarea-form {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  max-width: 500px;
+  grid-template-columns: auto;
+  gap: 0.5rem;
+  max-width: 45%;
   margin: 0 auto auto 0;
   margin-top: 1.4rem;
-  label {
-    display: flex;
-    flex-direction: column;
-  }
-  input,
-  textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.3rem;
-  }
-  button {
-    background: #eb5440;
-    width: 140px;
-    border-color: transparent;
-    border-radius: 0.25rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.888rem;
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    padding: 0.37rem 0.4rem;
-    text-transform: uppercase;
-    transition: all 0.3s linear;
-  }
-  button:hover {
-    background-color: #f16351;
-  }
 }
 .similar-product-list{
   margin: 0.7rem auto;
