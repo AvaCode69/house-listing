@@ -3,9 +3,14 @@
 import React from "react";
 import { useListsContext } from "../context/lists_context";
 import ListView from "./ListView";
-const ItemList = () => {
-  const { filterLists } = useListsContext();
+import { Loading } from "../components";
 
+const ItemList = () => {
+  const { filterLists,lists_loading: loading } = useListsContext();
+
+  if (loading) {
+    return <Loading />;
+  }
   if (filterLists.length < 1) {
     return (
       <section className="main">

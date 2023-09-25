@@ -12,6 +12,8 @@ import {
   FaTrash,
   FaEdit 
 } from "react-icons/fa";
+import RecommendHouse from "./RecommendHouse";
+//import {ListView} from "../components/index"
 
 const SingleItemPage = () => {
   const { id } = useParams();
@@ -122,7 +124,8 @@ const SingleItemPage = () => {
         </div>
 
         <div className="rigth-column">
-          <h1>similar product</h1>
+          <h4>Recommended for you</h4>
+          <RecommendHouse location={city} idItem={id}/>
         </div>
       </div>
 
