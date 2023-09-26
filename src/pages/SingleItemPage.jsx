@@ -81,8 +81,6 @@ const SingleItemPage = () => {
                   type="button"
                   className="remove-btn"
                   onClick={() => {
-                    console.log("Button clicked");
-                    console.log(id);
                     openModal(id);
                   }}
                 >

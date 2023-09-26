@@ -348,21 +348,19 @@ p {
  
     justify-items: baseline;
   }
-  .nav-center {
-  
-    grid-template-columns: auto 1fr auto !important;
-  }
+ 
   .nav-toggle {
     display: none;
   }
   .nav-center {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr !important;
     align-items: center;
   }
   .nav-links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 2rem;
     li {
       margin: 0 0.5rem;
     }

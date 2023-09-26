@@ -127,7 +127,8 @@ const lists_reducer = (state, action) => {
   if (action.type === RECOMMEND_LIST) {
     if (action.payload) {
       const updateLists = state.filterLists.filter((item) =>
-      item.id !== action.payload.idItem && item.city.toLowerCase().startsWith(action.payload.location.toLowerCase()) 
+      item.id !== action.payload.idItem && item.city.startsWith(action.payload.location) ,
+      console.log("aaa"+ action.payload.location)
       );
 
       return {

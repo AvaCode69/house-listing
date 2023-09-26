@@ -31,8 +31,8 @@ const RecommendHouse = ({ location ,idItem}) => {
   }
 
   useEffect(() => {
-    recommendList(idItem,location)
-  }, [recommendNewList, location]);
+    recommendList(idItem,location);
+  }, [location,idItem]);
 
   return (
     <section className="similar-product-list">

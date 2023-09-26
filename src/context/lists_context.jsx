@@ -131,6 +131,7 @@ export const ListsProvider = ({ children }) => {
 const recommendList=(idItem,location)=>{
   dispatch({ type: RECOMMEND_LIST, payload: {idItem,location} });
 }
+
   const removeItem = async () => {
     const id = state.modalItemId;
     try {
