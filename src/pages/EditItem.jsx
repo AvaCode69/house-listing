@@ -80,13 +80,33 @@ const EditItem = () => {
     }
   };
 
+  const MAX_IMAGE_SIZE = 0.5 * 1024 * 1024; //( 500KB maximum size)
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setEditData((prevData) => ({ ...prevData, image: file }));
-
-    const url = URL.createObjectURL(file);
-    setImageURL(url);
+  
+    // Check if a file is selected
+    if (file) {
+      // Check if the file size is within the allowed limit
+      if (file.size <= MAX_IMAGE_SIZE) {
+        setEditData((prevData) => ({ ...prevData, image: file }));
+  
+        const url = URL.createObjectURL(file);
+        setImageURL(url);
+      } else {
+        setAddItemMessage("Image size exceeds the allowed limit.");
+        
+        e.target.value = null;
+        setImageURL('');
+        setEditData((prevData) => ({ ...prevData, image: null }));
+      }
+    }
   };
+  
+  
+  
+  
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();

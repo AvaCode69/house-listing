@@ -436,7 +436,7 @@ h5 {
   transition: all 0.3s linear;
   margin-left: 0.5rem;
 }
-.lists {
+.lists,.main {
   @include widthStyles;
 
   a {
@@ -637,6 +637,7 @@ h5 {
 }
 .message {
   color: #e40a0a;
+  padding-top: 2rem;
 }
 
 .modal-container {

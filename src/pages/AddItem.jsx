@@ -71,7 +71,7 @@ const AddItem = () => {
     setAddItemMessage("");
 
     if (!validateForm()) {
-      setAddItemMessage("required field missing");
+      setAddItemMessage("Required field(s) missing");
       return;
     } else {
       addToList(formData);
