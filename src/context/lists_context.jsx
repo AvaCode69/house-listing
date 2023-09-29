@@ -23,8 +23,6 @@ import {
   GET_SINGLE_ITEM_BEGIN,
   OPEN_MODAL,
   CLOSE_MODAL,
-  EDIT_ITEM,
-  UPDATE_ITEM,
   PRICE_LOWEST,
   SIZE_SMALLEST,
   FILTER_ITEM,RECOMMEND_LIST
@@ -87,6 +85,9 @@ export const ListsProvider = ({ children }) => {
   const sortPrice = () => {
     dispatch({ type: PRICE_LOWEST });
   };
+  const sortSize = () => {
+    dispatch({ type: SIZE_SMALLEST });
+  };
 
   const fetchLists = async () => {
     dispatch({ type: GET_LISTS_BEGIN });
@@ -111,15 +112,12 @@ export const ListsProvider = ({ children }) => {
     const singleItem = response.data;
     try {
       dispatch({ type: GET_SINGLE_ITEM_SUCCESS, payload: singleItem });
-      //setFormData(singleItem);
+    
     } catch {
       dispatch({ type: GET_SINGLE_ITEM_ERROR });
     }
   };
-  const sortSize = () => {
-    dispatch({ type: SIZE_SMALLEST });
-  };
-
+ 
   useEffect(() => {
     state.filterLists = [...state.lists];
   }, [state.filterLists, state.lists]);
@@ -161,9 +159,7 @@ const recommendList=(idItem,location)=>{
       const response = await axios.put(url, editData, {
         headers: { "content-type": "application/json" },
       });
-      // console.log(response.data); // Log the response data to verify the updated data from the server
 
-      // Update the formData state directly with the response data
       setEditData(response.data);
     } catch (error) {
       console.error("Error updating house:", error);
